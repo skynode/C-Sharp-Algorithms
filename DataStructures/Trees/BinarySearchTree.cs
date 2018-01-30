@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+
+using System.Collections;
 
 using DataStructures.Common;
 
@@ -76,6 +77,10 @@ namespace DataStructures.Trees
                 else
                     node.Parent.RightChild = newNode;
             }
+            else
+            {
+                Root = newNode;
+            }
 
             if (newNode != null)
                 newNode.Parent = node.Parent;
@@ -95,7 +100,7 @@ namespace DataStructures.Trees
 
             if (node.ChildrenCount == 2) // if both children are present
             {
-                var successor = node.RightChild;
+                var successor = _findNextLarger(node);
                 node.Value = successor.Value;
                 return (true && _remove(successor));
             }
