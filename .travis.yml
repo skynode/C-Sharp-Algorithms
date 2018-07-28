@@ -3,5 +3,8 @@ solution: C-Sharp-Algorithms.sln
 dotnet: 2.0.3
 mono: none
 dist: trusty
-script:
+install:
   - dotnet restore
+script:
+  - dotnet build
+  - dotnet test UnitTest/UnitTest.csproj
